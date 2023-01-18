@@ -1,15 +1,16 @@
 import { Configuration, OpenAIApi } from "openai";
 
 const configuration = new Configuration({
-  apiKey: "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",
+  apiKey: "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",
 });
 
 const openai = new OpenAIApi(configuration);
 
-const basePromptPrefix = "";
+const basePromptPrefix =
+  "this is a conversation with holy jesus, the Son of God in the Bible's New Testament, and in mainstream Christian denominations he is God the Son, the second Person in the Trinity. add my child in the starting of jesus conversation,me:";
 const generateAction = async (req, res) => {
   // Run first prompt
-  console.log(`API: ${basePromptPrefix}${req.body.userInput}`);
+  console.log(`API: ${basePromptPrefix}${req.body.userInput} ?\n`);
 
   const baseCompletion = await openai.createCompletion({
     model: "text-davinci-003",

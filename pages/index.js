@@ -1,7 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
-import buildspaceLogo from "../assets/buildspace-logo.png";
+
 import { useState } from "react";
+import Navbar from "../component/Navbar";
 import TextArea from "../component/textArea";
 
 const Home = () => {
@@ -37,22 +38,23 @@ const Home = () => {
   return (
     <div className="root">
       <Head>
-        <title>GPT-3 Writer</title>
+        <title>Divine01</title>
       </Head>
+      <nav>
+        <Navbar />
+      </nav>
       <div className="container">
         <div className="header">
           <div className="header-title">
-            <h1>Custom Hook Generator</h1>
+            <h1>Ask Jesus anything</h1>
           </div>
           <div className="header-subtitle">
-            <h2>
-              Input the tas and the hook will generate a custom hook for you
-            </h2>
+            <h2>Ask any question to jesus you want to He will answer you</h2>
           </div>
         </div>
         <div className="prompt-container">
           <textarea
-            placeholder="start typing here"
+            placeholder="Ask Jesus anything for example: How life is maintained on this earth?"
             className="prompt-box"
             value={userInput}
             onChange={onUserChangedText}
@@ -79,26 +81,15 @@ const Home = () => {
               <div className="output-header-container">
                 <div className="output-header">
                   <h3>Output</h3>
+                  <hr className="h-2" />
                 </div>
               </div>
               <div className="output-content">
-                <p>{apiOutput}</p>
+                <p className="text-gray-900">{apiOutput}</p>
               </div>
             </div>
           )}
         </div>
-      </div>
-      <div className="badge-container grow">
-        <a
-          href="https://buildspace.so/builds/ai-writer"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <div className="badge">
-            <Image src={buildspaceLogo} alt="buildspace logo" />
-            <p>build with buildspace</p>
-          </div>
-        </a>
       </div>
     </div>
   );
