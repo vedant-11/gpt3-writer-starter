@@ -10,6 +10,12 @@ const Home = () => {
   const [apiOutput, setApiOutput] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
 
+  const finalOutput = () => {
+    if (apiOutput.includes("jesus:")) {
+      return apiOutput.split("jesus:")[1];
+    }
+  };
+
   const callGenerateEndpoint = async () => {
     setIsGenerating(true);
 
@@ -27,7 +33,7 @@ const Home = () => {
     console.log("OpenAI replied...", output.text);
 
     setApiOutput(`${output.text}`);
-    setIsGenerating(false);
+    // setIsGenerating(false);
   };
 
   const onUserChangedText = (event) => {

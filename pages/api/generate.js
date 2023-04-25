@@ -1,16 +1,16 @@
 import { Configuration, OpenAIApi } from "openai";
 
 const configuration = new Configuration({
-  apiKey: "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",
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
 const openai = new OpenAIApi(configuration);
 
 const basePromptPrefix =
-  "this is a conversation with holy jesus, the Son of God in the Bible's New Testament, and in mainstream Christian denominations he is God the Son, the second Person in the Trinity. add my child in the starting of jesus conversation,me:";
+  "you will receive an array of crowdfunding titles, you have to return an array with first title as the most needed funding one based on the following rules:\n1. The medical emergency is to be ranked higher\n2. The crowd funding for poors or by ngos must be then considered\n3. on a tie rank the title which was first in the array\n";
 const generateAction = async (req, res) => {
   // Run first prompt
-  console.log(`API: ${basePromptPrefix}${req.body.userInput} ?\n`);
+  console.log(`API: ${basePromptPrefix}${req.body.userInput}`);
 
   const baseCompletion = await openai.createCompletion({
     model: "text-davinci-003",
