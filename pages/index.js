@@ -27,6 +27,7 @@ const Home = () => {
       },
       body: JSON.stringify({ userInput }),
     });
+    console.log(JSON.stringify({ userInput }));
 
     const data = await response.json();
     const { output } = data;
